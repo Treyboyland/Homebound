@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: BunnySmall
   m_EditorClassIdentifier: 
   digTime: 2
-  speed: 5
+  speed: 10
   colliderSize: {x: 0.6, y: 0.6}
   playerAnimator: {fileID: 9100000, guid: b25dfedb6041f5649ac434a01c7a154c, type: 2}

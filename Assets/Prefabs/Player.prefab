@@ -160,6 +160,7 @@ GameObject:
   - component: {fileID: 3015217150368946146}
   - component: {fileID: 3214650090815984879}
   - component: {fileID: 427647958261079020}
+  - component: {fileID: 917223246316577650}
   - component: {fileID: 3015217150368946144}
   - component: {fileID: 3015217150368946145}
   - component: {fileID: 4243720106442348620}
@@ -359,6 +360,22 @@ MonoBehaviour:
     WwiseObjectReference: {fileID: 11400000, guid: f73b541122a7e4f44b6d50f3ff5510f0, type: 2}
   useAbsoluteValue: 1
   depthMultiplier: 2
+--- !u!114 &917223246316577650
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3015217150368946159}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af8ed768642828c45a6caca5165a99f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movingDrag: 1
+  stoppedDrag: 3
+  body: {fileID: 3015217150368946145}
+  controller: {fileID: 3015217150368946147}
 --- !u!61 &3015217150368946144
 BoxCollider2D:
   m_ObjectHideFlags: 0
