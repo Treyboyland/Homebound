@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <SoundBanksInfo Platform="Windows" BasePlatform="Windows" SchemaVersion="12" SoundbankVersion="140">
 	<RootPaths>
-		<ProjectRoot>F:\Unity Projects\RuffianRockLourds\RuffianRockLourds_WwiseProject\</ProjectRoot>
-		<SourceFilesRoot>F:\Unity Projects\RuffianRockLourds\RuffianRockLourds_WwiseProject\.cache\Windows\</SourceFilesRoot>
-		<SoundBanksRoot>F:\Unity Projects\RuffianRockLourds\RuffianRockLourds_WwiseProject\GeneratedSoundBanks\Windows\</SoundBanksRoot>
+		<ProjectRoot>F:\Unity Projects\Homebound\RuffianRockLourds_WwiseProject\</ProjectRoot>
+		<SourceFilesRoot>F:\Unity Projects\Homebound\RuffianRockLourds_WwiseProject\.cache\Windows\</SourceFilesRoot>
+		<SoundBanksRoot>F:\Unity Projects\Homebound\RuffianRockLourds_WwiseProject\GeneratedSoundBanks\Windows\</SoundBanksRoot>
 		<ExternalSourcesInputFile></ExternalSourcesInputFile>
-		<ExternalSourcesOutputRoot>F:\Unity Projects\RuffianRockLourds\RuffianRockLourds_WwiseProject\GeneratedSoundBanks\Windows</ExternalSourcesOutputRoot>
+		<ExternalSourcesOutputRoot>F:\Unity Projects\Homebound\RuffianRockLourds_WwiseProject\GeneratedSoundBanks\Windows</ExternalSourcesOutputRoot>
 	</RootPaths>
 	<DialogueEvents/>
 	<StreamedFiles/>
 	<MediaFilesNotInAnyBank/>
 	<SoundBanks>
-		<SoundBank Id="1355168291" Language="SFX" Hash="3231460152">
+		<SoundBank Id="1355168291" Language="SFX" Hash="720624561">
 			<ObjectPath>Init</ObjectPath>
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
@@ -21,7 +21,7 @@
 				<GameParameter Id="1755200717" Name="PlayerDepth" ObjectPath="\Game Parameters\Default Work Unit\PlayerDepth"/>
 			</GameParameters>
 		</SoundBank>
-		<SoundBank Id="2858921253" Language="SFX" Hash="1579931393">
+		<SoundBank Id="2858921253" Language="SFX" Hash="2769973335">
 			<ObjectPath>\SoundBanks\Default Work Unit\AllInOne</ObjectPath>
 			<ShortName>AllInOne</ShortName>
 			<Path>AllInOne.bnk</Path>
@@ -634,7 +634,7 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="344026725" Name="RainImpact" ObjectPath="\Events\Default Work Unit\RainImpact" DurationType="OneShot" DurationMin="3.479592" DurationMax="7.948435">
+				<Event Id="344026725" Name="RainImpact" ObjectPath="\Events\Default Work Unit\RainImpact" MaxAttenuation="100." DurationType="OneShot" DurationMin="3.479592" DurationMax="7.948435">
 					<IncludedMemoryFiles>
 						<File Id="42082726" Language="SFX">
 							<ShortName>RainDrops 4(2).wav</ShortName>
