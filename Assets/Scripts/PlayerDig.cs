@@ -14,7 +14,9 @@ public class PlayerDig : MonoBehaviour
     PlayerRaycast leftRaycast, rightRayCast, topRaycast, bottomRaycast;
 
     Ground currentGround;
-    
+
+    public Ground CurrentGround { get => currentGround; }
+
     private void Update()
     {
         CheckDigging();

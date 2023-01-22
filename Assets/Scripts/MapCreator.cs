@@ -121,4 +121,22 @@ public class MapCreator : MonoBehaviour
             yield return null;
         }
     }
+
+    /// <summary>
+    /// Returns undug ground
+    /// </summary>
+    /// <returns></returns>
+    public List<Ground> GetActiveGround()
+    {
+        List<Ground> activeGround = new List<Ground>();
+        foreach (var obj in groundPool)
+        {
+            if (!obj.IsDugOut)
+            {
+                activeGround.Add(obj);
+            }
+        }
+
+        return activeGround;
+    }
 }

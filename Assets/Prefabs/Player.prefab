@@ -167,6 +167,7 @@ GameObject:
   - component: {fileID: 5314619779974966753}
   - component: {fileID: 4246785060049273737}
   - component: {fileID: 6391894550346084546}
+  - component: {fileID: 1752491430385450122}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -305,6 +306,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameConstantsSO: {fileID: 11400000, guid: e5f2f7c50f9793a44895795fe30cfd2c, type: 2}
   body: {fileID: 3015217150368946145}
+  computerController: {fileID: 0}
   secondsToMove: 0.5
   speed: 0
 --- !u!114 &3015217150368946146
@@ -484,6 +486,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15485271ed97e3e44854ad922fc8d712, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1752491430385450122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3015217150368946159}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc28fdfafdac3504e9b54a7db75e79dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 3015217150368946147}
+  playerDig: {fileID: 3015217150368946146}
+  isComputerControlled: 0
+  map: {fileID: 0}
+  worldReset: {fileID: 5314619779974966753}
+  worldZoom: {fileID: 0}
+  secondsToMove: 0.5
+  secondsToWait: 30
 --- !u!1 &3015217150782260648
 GameObject:
   m_ObjectHideFlags: 0

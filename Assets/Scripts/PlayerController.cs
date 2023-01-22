@@ -12,6 +12,9 @@ public class PlayerController : MonoBehaviour
     Rigidbody2D body;
 
     [SerializeField]
+    ComputerController computerController;
+
+    [SerializeField]
     float secondsToMove;
 
     [SerializeField]
@@ -23,13 +26,21 @@ public class PlayerController : MonoBehaviour
 
     Vector2 movementVector;
 
-    public Vector2 MovementVector { get { return movementVector; } }
+    public Vector2 MovementVector { get { return movementVector; } set { movementVector = value; } }
 
     public bool IsLeftPressed { get { return movementVector.x < 0; } }
     public bool IsRightPressed { get { return movementVector.x > 0; } }
 
     public bool IsUpPressed { get { return movementVector.y > 0; } }
     public bool IsDownPressed { get { return movementVector.y < 0; } }
+
+    Vector2 contextVector = Vector2.zero;
+
+    /// <summary>
+    /// Received from input value
+    /// </summary>
+    /// <value></value>
+    public Vector2 ContextVector { get => contextVector; }
 
     // Start is called before the first frame update
     void Start()
@@ -46,49 +57,12 @@ public class PlayerController : MonoBehaviour
     void OnMovement(InputValue context)
     {
         Vector2 movement = context.Get<Vector2>();
+        contextVector = movement;
         movementVector = movement;
     }
 
     void DoMove2()
     {
         body.AddForce(movementVector * speed);
-    }
-
-    void DoMove1()
-    {
-        if (!isMoving && movementVector != Vector2.zero)
-        {
-            StartCoroutine(Move());
-        }
-    }
-
-    IEnumerator Move()
-    {
-        isMoving = true;
-
-        Vector3 start = transform.position;
-        Vector3 end = start;
-
-        if (movementVector.y != 0)
-        {
-            end.y += gameConstantsSO.UnitDistance * Mathf.Sign(movementVector.y);
-        }
-        else if (movementVector.x != 0)
-        {
-            end.x += gameConstantsSO.UnitDistance * Mathf.Sign(movementVector.x);
-        }
-
-        float elapsed = 0;
-
-        while (elapsed < secondsToMove)
-        {
-            elapsed += Time.deltaTime;
-            body.MovePosition(Vector3.Lerp(start, end, elapsed / secondsToMove));
-            yield return null;
-        }
-
-        body.MovePosition(end);
-
-        isMoving = false;
     }
 }

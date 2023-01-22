@@ -33,6 +33,8 @@ public class WorldZoom : MonoBehaviour
 
     bool isResetting = false;
 
+    public bool IsResetting { get => isResetting; }
+
     private void Awake()
     {
         worldReset.OnResetWorld.AddListener(ResetWorld);
