@@ -17,15 +17,26 @@ public class Ground : MonoBehaviour
     [SerializeField]
     AK.Wwise.RTPC digTimeRTPC;
 
+    [SerializeField]
+    float secondsToRestore;
+
     public UnityEvent OnDirtBroken;
+
+    public UnityEvent<float> OnProgressUpdate = new UnityEvent<float>();
 
     bool isDigging = false;
 
     bool isDugOut = false;
 
+    public bool IsDugOut { get { return isDugOut; } }
+
     Vector3 location;
 
+    Coroutine diggingRoutine;
 
+    bool isDone = true;
+
+    public bool IsDone { get { return isDone; } }
 
     // Start is called before the first frame update
     void Start()
@@ -43,7 +54,7 @@ public class Ground : MonoBehaviour
     {
         if (!isDigging && !isDugOut)
         {
-            StartCoroutine(DiggingCoroutine(digTime));
+            diggingRoutine = StartCoroutine(DiggingCoroutine(digTime));
         }
     }
 
@@ -56,15 +67,35 @@ public class Ground : MonoBehaviour
     public void StopDigging()
     {
         isDigging = false;
-        StopAllCoroutines();
+        if (diggingRoutine != null)
+        {
+            StopCoroutine(diggingRoutine);
+        }
         digTimeRTPC.SetGlobalValue(0);
+        OnProgressUpdate.Invoke(0);
     }
 
-    void ResetGround()
+    public void ResetGround()
     {
         groundCollider.enabled = true;
         frontSprite.enabled = true;
         isDugOut = false;
+        StartCoroutine(UndoProgress());
+    }
+
+    IEnumerator UndoProgress()
+    {
+        isDone = false;
+        float elapsed = 0;
+        while (elapsed < secondsToRestore)
+        {
+            elapsed += Time.deltaTime;
+            OnProgressUpdate.Invoke(Mathf.Lerp(100.0f, 0, elapsed / secondsToRestore));
+            yield return null;
+        }
+
+        OnProgressUpdate.Invoke(0);
+        isDone = true;
     }
 
     void DigOut()
@@ -84,10 +115,11 @@ public class Ground : MonoBehaviour
             elapsed += Time.deltaTime;
             float progress = elapsed / secondsToWait * 100;
             digTimeRTPC.SetGlobalValue(Mathf.Min(progress, 100));
+            OnProgressUpdate.Invoke(progress);
             yield return null;
         }
 
-
+        OnProgressUpdate.Invoke(100);
         DigOut();
         digTimeRTPC.SetGlobalValue(0);
         isDigging = false;

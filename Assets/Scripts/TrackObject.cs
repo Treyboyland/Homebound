@@ -7,6 +7,11 @@ public class TrackObject : MonoBehaviour
     [SerializeField]
     GameObject objectToTrack;
 
+    [SerializeField]
+    bool shouldTrack = true;
+
+    public bool ShouldTrack { get { return shouldTrack; } set { shouldTrack = value; } }
+
     Vector3 offset;
 
     // Start is called before the first frame update
@@ -18,6 +23,11 @@ public class TrackObject : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = objectToTrack.transform.position + offset;
+        if (shouldTrack)
+        {
+            transform.position = objectToTrack.transform.position + offset;
+        }
     }
+
+    public Vector3 TargetPos { get { return objectToTrack.transform.position + offset; } }
 }
